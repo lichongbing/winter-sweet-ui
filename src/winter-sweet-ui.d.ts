@@ -1,5 +1,16 @@
 import Vue, {VueConstructor} from 'vue'
-
+import { Button, Table,TableColumn } from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import App from './winter-sweet-ui.vue';
+// @ts-ignore
+Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
+Vue.use(Button);
+Vue.use(Table)
+Vue.use(TableColumn)
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
 /**
  * @FYI https://www.yuque.com/docs/share/a72a1b84-c0e4-4bd5-853f-6711cb08a507
  */

@@ -1,6 +1,6 @@
 branches:
   only:
-   - master
+   - v1.0.0
 language: node_js
 node_js:
 - lts/*
@@ -21,10 +21,10 @@ deploy:
     skip-cleanup: true
     keep-history: true
     on:
-      branch: master
+      branch: v1.0.0
   - provider: npm
     email: 873610008@qq.com # use your own email
     api_key: $NPM_TOKEN
     skip-cleanup: true
     on:
-      branch: master
+      branch: v1.0.0
