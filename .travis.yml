@@ -1,6 +1,6 @@
 branches:
   only:
-   - v1.0.0
+   - master
 language: node_js
 node_js:
 - lts/*
@@ -14,17 +14,17 @@ script:
 after_script:
 - "./notify.sh"
 cache: yarn
-deploy:
-  - provider: pages # you may delete this provider if you don't need deployment of github pages
-    local-dir: docs # https://docs.travis-ci.com/user/deployment/packagecloud/#specify-package-folder
-    github-token: $GITHUB_TOKEN
-    skip-cleanup: true
-    keep-history: true
-    on:
-      branch: v1.0.0
-  - provider: npm
-    email: 873610008@qq.com # use your own email
-    api_key: $NPM_TOKEN
-    skip-cleanup: true
-    on:
-      branch: v1.0.0
+#deploy:
+#  - provider: pages # you may delete this provider if you don't need deployment of github pages
+#    local-dir: docs # https://docs.travis-ci.com/user/deployment/packagecloud/#specify-package-folder
+#    github-token: $GITHUB_TOKEN
+#    skip-cleanup: true
+#    keep-history: true
+#    on:
+#      branch: master
+#  - provider: npm
+#    email: 873610008@qq.com # use your own email
+#    api_key: $NPM_TOKEN
+#    skip-cleanup: true
+#    on:
+#      branch: master
