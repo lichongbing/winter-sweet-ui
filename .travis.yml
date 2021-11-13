@@ -1,6 +1,6 @@
 branches:
   only:
-    - master
+  - master
 language: node_js
 node_js:
 - lts/*
@@ -10,21 +10,24 @@ install:
 - yarn --frozen-lockfile
 - yarn test
 script:
-- ./build.sh
+- "./build.sh"
 after_script:
-- ./notify.sh
+- "./notify.sh"
 cache: yarn
 deploy:
-- provider: pages # you may delete this provider if you don't need deployment of github pages
-  local-dir: docs # https://docs.travis-ci.com/user/deployment/packagecloud/#specify-package-folder
-  github-token: $GITHUB_TOKEN
-  skip-cleanup: true
-  keep-history: true
-  on:
-    branch: main
-- provider: npm
-  email: 873610008@qq.com # use your own email
-  api_key: $NPM_TOKEN
-  skip-cleanup: true
-  on:
-    branch: master
+  matrix:
+  - provider: pages
+    local-dir: docs
+    github-token: "$GITHUB_TOKEN"
+    skip-cleanup: true
+    keep-history: true
+    on:
+      branch: master
+  - provider: npm
+    email: 873610008@qq.com
+    api_key: "$NPM_TOKEN"
+    skip-cleanup: true
+    on:
+      branch: master
+  api_key:
+    secure: UHgP5IWRw5Y9Y8hylIAzW44WyU6gF3Pc811bMZpheOPZTGSgNQh8dJjNJcolgkZJ2l56Q2b1JqQQL3J696oWpGzHISq2r7tneml9KAI9FL5/3gw7x/Q/FalJ27eFBM+CpfgQ5ETOliJaTSLglhvHE3PeAKOiGktv/Loah8NG290A2PZ573bjjv9COJ6Vbwm746Fv6XgFl+r4TnCNtlm4nDqH5H85V/GZpV3xdCeaAUBCC9lrgyF0KaEPwsf6L8yCAyqWThWxf4bBrBGruGP12fmwfbcEhmhs4CxbBz7tZQmGC1K9zM/U+sIGv70Y/rVFTXoOqMya7R1Q8yhKfR3beawWUCVLJLaUb+IuPRSVhkWDsXlCYBA5FmedUMwaN+je7TnWCQVY/T/nsn74t566uV0eMJ9yp7xeSpbEH22ez3RaqOA8NC43c338Ab5ynaH+lQr6WMxPlXGySVlY4U3+zyolGr5epKUx2ehY1j7MUxNNqDizUn3pzAtglm66EzPqcWty8pnRJUr57GJr+1fUaR7ROceLSLSILwvpLLfj1h5tppZd5XOUebOhNiZo83L/QLTAXTJzyoz8jCNmJ+YNSU35f8cWynHc4V9UFUoVak5orqbNev+TKvdth4h3z7ma288RRNas6pEnej61LdpCBWgGnsr5EoFUs3/pxf/G/dQ=
