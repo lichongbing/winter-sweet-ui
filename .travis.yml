@@ -7,7 +7,7 @@ node_js:
 git:
   depth: 30
 install:
-- yarn --frozen-lockfile
+- yarn
 - yarn test
 script:
 - "./build.sh"
